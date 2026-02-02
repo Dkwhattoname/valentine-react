@@ -32,9 +32,7 @@ const useTypewriter = (text, speed = 50, shouldStart = true) => {
 
 function App() {
   const [accepted, setAccepted] = useState(false);
-  const [gif, setGif] = useState(
-    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWZ6bWZxY2JwY2x2N3JrM2xwN3A5bG5mYjRmbHJ6b3h2d2Y5aSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oriO0OEd9QIDdllqo/giphy.gif"
-  );
+
 
   const [yesScale, setYesScale] = useState(1);
   const [noCount, setNoCount] = useState(0);
@@ -100,10 +98,9 @@ function App() {
   // Preload GIFs for smooth experience
   useEffect(() => {
     const images = [
-      "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWZ6bWZxY2JwY2x2N3JrM2xwN3A5bG5mYjRmbHJ6b3h2d2Y5aSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oriO0OEd9QIDdllqo/giphy.gif",
+      "/Val.jpeg",
       "https://media1.tenor.com/m/2Zhy-oXWJUwAAAAC/cat-angry-cat.gif",
-      "https://media.giphy.com/media/g3y7Ojdct0aozW7M6x/giphy.gif",
-      "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+      "/Yes.jpeg"
     ];
     images.forEach(src => {
       const img = new Image();
@@ -111,7 +108,7 @@ function App() {
     });
   }, []);
 
-  const matches = useTypewriter("Will you be my Valentine? 💕", 50, isEnvelopeOpen);
+  const matches = useTypewriter("Will you be my Valentine Madam? 💕", 50, isEnvelopeOpen);
   const tapText = useTypewriter("Tap to open", 100);
 
   const handleCardEnter = () => {
@@ -262,9 +259,7 @@ function App() {
   const currentGif =
     resetCount > 0 && noCount >= 8
       ? "https://media1.tenor.com/m/2Zhy-oXWJUwAAAAC/cat-angry-cat.gif"
-      : resetCount > 0
-        ? "https://media.giphy.com/media/g3y7Ojdct0aozW7M6x/giphy.gif"
-        : "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWZ6bWZxY2JwY2x2N3JrM2xwN3A5bG5mYjRmbHJ6b3h2d2Y5aSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oriO0OEd9QIDdllqo/giphy.gif";
+      : "/Val.jpeg";
 
   const handleNoHover = () => {
     moveNo();
@@ -344,7 +339,7 @@ function App() {
         </div>
         <div className="card" style={{ zIndex: 1 }}>
           <img
-            src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+            src="/Yes.jpeg"
             alt="love gif"
             className="gif"
           />
@@ -352,7 +347,7 @@ function App() {
             <span className="gradient-text">Yay!</span> 💖
           </h1>
           <p>
-            <span className="gradient-text">You are my Valentine</span> 🥰
+            <span className="gradient-text">You are my Valentine Gwar</span> 🥰
           </p>
         </div>
       </div>
@@ -389,7 +384,12 @@ function App() {
           transition: "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
         }}
       >
-        <img src={currentGif} alt="cute gif" className="gif" ref={gifRef} />
+        <img
+          src={currentGif}
+          alt="cute gif"
+          className={`gif ${currentGif === "/Val.jpeg" ? "rotate-val" : ""}`}
+          ref={gifRef}
+        />
 
         {!(resetCount > 0 && noCount >= 8) && (
           <h2 ref={textRef} className="typewriter-text">
