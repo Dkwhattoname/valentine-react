@@ -98,9 +98,9 @@ function App() {
   // Preload GIFs for smooth experience
   useEffect(() => {
     const images = [
-      "/Val.jpeg",
+      "https://media.tenor.com/AbakDm9tIkEAAAAM/white-cat-cats.gif",
       "https://media1.tenor.com/m/2Zhy-oXWJUwAAAAC/cat-angry-cat.gif",
-      "/Yes.jpeg"
+      "https://steemitimages.com/DQmW2xebQAzsk1qM5A5HJq6qS9A1rqvgzgS6RyPtUhCQ1Qd/giphy%20(100).gif"
     ];
     images.forEach(src => {
       const img = new Image();
@@ -108,7 +108,7 @@ function App() {
     });
   }, []);
 
-  const matches = useTypewriter("Will you be my Valentine Madam? 💕", 50, isEnvelopeOpen);
+  const matches = useTypewriter("Will you be my Valentine? 💕", 50, isEnvelopeOpen);
   const tapText = useTypewriter("Tap to open", 100);
 
   const handleCardEnter = () => {
@@ -259,7 +259,7 @@ function App() {
   const currentGif =
     resetCount > 0 && noCount >= 8
       ? "https://media1.tenor.com/m/2Zhy-oXWJUwAAAAC/cat-angry-cat.gif"
-      : "/Val.jpeg";
+      : "https://media.tenor.com/AbakDm9tIkEAAAAM/white-cat-cats.gif";
 
   const handleNoHover = () => {
     moveNo();
@@ -339,7 +339,7 @@ function App() {
         </div>
         <div className="card" style={{ zIndex: 1 }}>
           <img
-            src="/Yes.jpeg"
+            src="https://steemitimages.com/DQmW2xebQAzsk1qM5A5HJq6qS9A1rqvgzgS6RyPtUhCQ1Qd/giphy%20(100).gif"
             alt="love gif"
             className="gif"
           />
@@ -347,7 +347,7 @@ function App() {
             <span className="gradient-text">Yay!</span> 💖
           </h1>
           <p>
-            <span className="gradient-text">You are my Valentine Gwar</span> 🥰
+            <span className="gradient-text">You are my Valentine</span> 🥰
           </p>
         </div>
       </div>
@@ -387,7 +387,7 @@ function App() {
         <img
           src={currentGif}
           alt="cute gif"
-          className={`gif ${currentGif === "/Val.jpeg" ? "rotate-val" : ""}`}
+          className="gif"
           ref={gifRef}
         />
 
